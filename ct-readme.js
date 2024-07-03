@@ -43,7 +43,11 @@ function ready() {
   });
 
   tippy('.ct-solutions-dropdown', {
+    allowHTML: true,
+    arrow: false,
     content: 'Solutions menu coming soon',
+    interactive: true,
+    placement: 'bottom',
     trigger: 'click'
   });
 }
