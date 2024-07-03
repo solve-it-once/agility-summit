@@ -20,7 +20,7 @@ function loadScript(src) {
 }
 
 const urls = [
-  "https://unpkg.com/@popperjs/core@2",
+  "https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js",
   "https://unpkg.com/tippy.js@6/dist/tippy.umd.min.js"
 ];
 Promise.all(urls.map(loadScript)).then(ready);
