@@ -4,6 +4,16 @@
  */
 
 /**
+ * Allow a small delay so tippy can load.
+ *
+ * @param {*} ms 
+ * @returns 
+ */
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
  * Wait until all the other stuff happens to load in the dropdown.
  */
 window.addEventListener("load", (event) => {
@@ -29,7 +39,14 @@ window.addEventListener("load", (event) => {
     "https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js",
     "https://unpkg.com/tippy.js@6/dist/tippy.umd.min.js"
   ];
-  Promise.all(urls.map(loadScript)).then(ready);
+  Promise.all(urls.map(loadScript)).then(loaded);
+
+  /**
+   * Put in a small loading delay.
+   */
+  function loaded() {
+    sleep(2000).then(ready);
+  }
 
   /**
    * Swap Solutions nav link for a dropdown button and put tippy on it.
