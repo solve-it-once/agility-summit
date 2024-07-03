@@ -18,11 +18,20 @@ function sleep(ms) {
  */
 window.addEventListener("load", (event) => {
   // Add in default tippy styles.
-  const link = document.createElement('link');
-  link.type = 'text/css';
-  link.rel = 'stylesheet';
-  link.href = 'https://unpkg.com/tippy.js@6/dist/tippy.css';
-  document.head.appendChild(link);
+  function loadStyle(href) {
+    return new Promise(resolve => {
+      const link = document.createElement('link');
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/tippy.js@6/dist/tippy.css';
+      document.head.appendChild(link);
+    });
+  }
+  const hrefs = [
+    "https://unpkg.com/tippy.js@6/dist/tippy.css",
+    "https://unpkg.com/tippy.js@6/themes/light.css"
+  ];
+  Promise.all(hrefs.map(loadStyle));
 
   function loadScript(src) {
     return new Promise(resolve => {
@@ -45,7 +54,7 @@ window.addEventListener("load", (event) => {
    * Put in a small loading delay.
    */
   function loaded() {
-    sleep(2000).then(ready);
+    sleep(1000).then(ready);
   }
 
   /**
@@ -71,9 +80,15 @@ window.addEventListener("load", (event) => {
     tippy('.ct-solutions-dropdown', {
       allowHTML: true,
       arrow: false,
-      content: 'Solutions menu coming soon',
+      content: `<ul>
+        <li><a href="/docs/introduction">Inventory Management Labor &amp; Scheduling</a></li>
+        <li><a href="https://developer.zenput.com/docs/introduction">Operations Execution (Zenput)</a></li>
+        <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Learning &amp; Development</a></li>
+        <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Cruise</a></li>
+      </ul>`,
       interactive: true,
       placement: 'bottom',
+      theme: 'light',
       trigger: 'click'
     });
   }
