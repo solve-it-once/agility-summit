@@ -23,7 +23,7 @@ window.addEventListener("load", (event) => {
       const link = document.createElement('link');
       link.type = 'text/css';
       link.rel = 'stylesheet';
-      link.href = 'https://unpkg.com/tippy.js@6/dist/tippy.css';
+      link.href = href;
       document.head.appendChild(link);
     });
   }
