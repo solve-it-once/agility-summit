@@ -3,6 +3,12 @@
  * All custom overrides behaviors for the readme.
  */
 
+const link = document.createElement('link');
+link.type = 'text/css';
+link.rel = 'stylesheet';
+link.href = 'https://unpkg.com/tippy.js@6/dist/tippy.css';
+head.appendChild(link);
+
 function loadScript(src) {
   return new Promise(resolve => {
       const script = document.createElement("script");
@@ -15,9 +21,8 @@ function loadScript(src) {
 
 const urls = [
   "https://unpkg.com/@popperjs/core@2",
-  "https://unpkg.com/tippy.js@6"
+  "https://unpkg.com/tippy.js@6/dist/tippy.umd.min.js"
 ];
-
 Promise.all(urls.map(loadScript)).then(ready);
 
 function ready() {
