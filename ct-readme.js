@@ -47,4 +47,5 @@ function ready() {
  */
 window.addEventListener("load", (event) => {
   sleep(250).then(ready);
+  sleep(1000).then(ready);
 });
