@@ -7,7 +7,7 @@ const link = document.createElement('link');
 link.type = 'text/css';
 link.rel = 'stylesheet';
 link.href = 'https://unpkg.com/tippy.js@6/dist/tippy.css';
-head.appendChild(link);
+document.head.appendChild(link);
 
 function loadScript(src) {
   return new Promise(resolve => {
