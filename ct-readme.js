@@ -3,10 +3,11 @@
  * All custom overrides behaviors for the readme.
  */
 
-/**
- * Wait until all the other stuff happens to load in the dropdown.
- */
-window.addEventListener("load", (event) => {
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function ready() {
   if ('tippy' in window) {
     var solutions = document.querySelectorAll(".rm-Header-bottom a.Button[href='/page/solutions']");
     Array.prototype.forEach.call(solutions, (elem) => {
@@ -39,4 +40,11 @@ window.addEventListener("load", (event) => {
       trigger: 'click'
     });
   }
+}
+
+/**
+ * Wait until all the other stuff happens to load in the dropdown.
+ */
+window.addEventListener("load", (event) => {
+  sleep(250).then(ready);
 });
