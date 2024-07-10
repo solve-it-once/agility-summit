@@ -29,7 +29,7 @@ function ready() {
       allowHTML: true,
       arrow: false,
       content: `<ul>
-        <li><a href="/docs/introduction">Inventory Management Labor &amp; Scheduling</a></li>
+        <li><a href="/docs/introduction">Inventory Management and Labor &amp; Scheduling</a></li>
         <li><a href="https://developer.zenput.com/docs/introduction">Operations Execution (Zenput)</a></li>
         <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Learning &amp; Development</a></li>
         <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Cruise</a></li>
