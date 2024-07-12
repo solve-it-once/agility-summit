@@ -12,7 +12,7 @@ function ready() {
     var solutions = document.querySelectorAll(".rm-Header-bottom a.Button[href='/page/solutions']");
     Array.prototype.forEach.call(solutions, (elem) => {
       const dropdownRaw = document.createElement("div");
-      dropdownRaw.classList.add('Dropdown', 'Dropdown_closed', 'ct-solutions-dropdown');
+      dropdownRaw.classList.add('Dropdown', 'Dropdown_closed', 'ct-solutions-dropdown', 'ct-solutions-dropdown-notippy');
       dropdownRaw.innerHTML= `
         <div class="Dropdown-toggle" aria-haspopup="dialog" aria-expanded="false">
           <button class="rm-Header-link rm-Header-bottom-link undefined Button Button_slate_text Button_md" type="button">
@@ -25,7 +25,7 @@ function ready() {
       elem.replaceWith(dropdownRaw);
     });
 
-    tippy('.ct-solutions-dropdown', {
+    tippy('.ct-solutions-dropdown-notippy', {
       allowHTML: true,
       arrow: false,
       content: `<ul>
@@ -38,6 +38,12 @@ function ready() {
       placement: 'bottom',
       theme: 'light',
       trigger: 'click'
+    });
+
+    // Only newly-added dropdown buttons will have this class, so we can prevent double-adding.
+    var cleanup = document.querySelectorAll('.ct-solutions-dropdown-notippy');
+    Array.prototype.forEach.call(cleanup, (elem) => {
+      elem.classList.remove("ct-solutions-dropdown-notippy");
     });
   }
 }
