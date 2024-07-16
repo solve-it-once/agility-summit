@@ -49,7 +49,7 @@ function ready() {
 
   // Ensure we do not insert the same element twice, but also that it does not get clobbered.
   var headerNav = document.querySelector('.rm-Header-bottom nav');
-  var inserted = headerNav.querySelectorAll('inserted-button');
+  var inserted = headerNav.querySelectorAll('.inserted-button');
   if (window.location.host === 'developer.zenput.com' 
     && (!inserted || !inserted.length)
   ) {
