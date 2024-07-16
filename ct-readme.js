@@ -29,7 +29,7 @@ function ready() {
       allowHTML: true,
       arrow: false,
       content: `<ul>
-        <li><a href="/docs/introduction">Inventory Management and Labor &amp; Scheduling</a></li>
+        <li><a href="https://developer.crunchtime.com/docs/introduction">Inventory Management and Labor &amp; Scheduling</a></li>
         <li><a href="https://developer.zenput.com/docs/introduction">Operations Execution (Zenput)</a></li>
         <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Learning &amp; Development</a></li>
         <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Cruise</a></li>
@@ -45,6 +45,19 @@ function ready() {
     Array.prototype.forEach.call(cleanup, (elem) => {
       elem.classList.remove("ct-solutions-dropdown-notippy");
     });
+  }
+
+  if (window.location.host === 'developer.zenput.com' 
+    && !document.body.classList.contains('home-link-inserted')
+  ) {
+    const homeLink = document.createElement('a');
+    homeLink.href = "https://developer.crunchtime.com/";
+    homeLink.classList.add("Button", "Button_md", "rm-Header-link", "rm-Header-bottom-link", "Button_slate_text", "Header-bottom-link_mobile");
+    homeLink.innerHTML = `<i class="icon-landing-page-2"></i><span>Home</span>`;
+
+    var headerNav = document.querySelector('.rm-Header-bottom nav');
+    headerNav.prepend(homeLink);
+    document.body.classList.add('home-link-inserted');
   }
 }
 
