@@ -32,7 +32,7 @@ function ready() {
         <li><a href="https://developer.crunchtime.com/docs/introduction">Inventory Management and Labor &amp; Scheduling</a></li>
         <li><a href="https://developer.zenput.com/docs/introduction">Operations Execution (Zenput)</a></li>
         <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Learning &amp; Development</a></li>
-        <li><a href="https://talentqa1-api.discoverlink.com/swagger/ui/index">Cruise</a></li>
+        <li><a href="https://developer.crunchtime.com/docs/cruise">Cruise</a></li>
       </ul>`,
       interactive: true,
       placement: 'bottom',
