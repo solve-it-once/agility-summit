@@ -49,8 +49,9 @@ function ready() {
 
   // Ensure we do not insert the same element twice, but also that it does not get clobbered.
   var headerNav = document.querySelector('.rm-Header-bottom nav');
+  var inserted = headerNav.querySelectorAll('inserted-button');
   if (window.location.host === 'developer.zenput.com' 
-    && !headerNav.querySelectorAll('inserted-button')
+    && (!inserted || !inserted.length)
   ) {
     const homeLink = document.createElement('a');
     homeLink.href = "https://developer.crunchtime.com/";
